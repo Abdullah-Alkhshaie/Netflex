@@ -34,7 +34,7 @@ function Movie({ item }) {
             </span>
           </p>
           <p className="text-lg md:text-lg whitespace-normal  flex justify-center h-full text-center items-center ">
-            {item.title?.slice(0, 44) || item.original_name}
+            {item.title?.slice(0, 20) || item.original_name}
           </p>
         </div>
       </Link>

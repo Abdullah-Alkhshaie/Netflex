@@ -127,7 +127,7 @@ function MovieCate() {
                 reviews){" "}
               </p>
             </div>
-            <div className="absolute lg:w-[70%] top-[50%] lg:top-[40%] xl:top-[43%] pl-5 text-left">
+            <div className="absolute lg:w-[70%] top-[50%] lg:top-[20%] pl-5 text-left">
               <p className="text-gray-400 flex gap-2 ">
                 <span className="flex items-center gap-1">
                   <CiStar />

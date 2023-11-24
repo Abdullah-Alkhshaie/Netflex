@@ -2,7 +2,7 @@ import React from "react";
 
 function Footer() {
   return (
-    <div className="mt-10 flex flex-col w-[90%] text-center mx-auto mb-5">
+    <div className="mt-40  flex flex-col w-[90%] text-center mx-auto mb-5">
       <h1 className="text-red-600 font bold text-3xl mb-5">NETFLEX</h1>
       <div className="bg-gray-700 p-10 rounded-lg justify-center text-center">
         <p className="flex  justify-around text-gray-400 mb-4">

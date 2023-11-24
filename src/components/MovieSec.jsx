@@ -20,7 +20,6 @@ function MovieSec({ item }) {
               {item?.vote_average.toFixed(1)}
             </span>
             <span>{item?.release_date.slice(0, 4)}</span>
-            <span>{item?.runtime} min</span>
           </p>
           <h1 className="mt-1 ">{item.title}</h1>
         </div>
