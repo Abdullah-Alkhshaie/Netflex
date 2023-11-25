@@ -11,7 +11,7 @@ function App() {
   return (
  <div className="text-white">
       <Navbar />
-      <Routes>
+      <Routes basename="/Netflex">
         <Route path="/" element={<Home />} />
         <Route path="/movieCate/:id" element={<MovieCate />} />
         <Route path="/signIn" element={<SignIn />} />
