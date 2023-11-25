@@ -12,10 +12,10 @@ function App() {
     <div className="text-white ">
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/movieCate/:id" element={<MovieCate />} />
-        <Route path="/signIn" element={<SignIn />} />
-        <Route path="/singUp" element={<SignUp />} />
+        <Route path="/" component={<Home />} />
+        <Route path="/movieCate/:id" component={<MovieCate />} />
+        <Route path="/signIn" component={<SignIn />} />
+        <Route path="/singUp" component={<SignUp />} />
       </Routes>
       <Footer />
     </div>
