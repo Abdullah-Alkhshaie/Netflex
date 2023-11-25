@@ -25,7 +25,7 @@ function MovieCate() {
   }, [id]);
 
   useEffect(() => {
-  axios.get(requsits.popular).then((response) => setMovieSec(response.data.results));
+  axios.get(requsits.requsitPopular).then((response) => setMovieSec(response.data.results));
 }, []);
 
   console.log(movieSec);
