@@ -9,13 +9,13 @@ import SignUp from "./pages/SignUp";
 
 function App() {
   return (
-    <div className="text-white ">
+ <div className="text-white">
       <Navbar />
       <Routes>
-        <Route path="/" component={<Home />} />
-        <Route path="/movieCate/:id" component={<MovieCate />} />
-        <Route path="/signIn" component={<SignIn />} />
-        <Route path="/singUp" component={<SignUp />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/movieCate/:id" element={<MovieCate />} />
+        <Route path="/signIn" element={<SignIn />} />
+        <Route path="/signUp" element={<SignUp />} />
       </Routes>
       <Footer />
     </div>
