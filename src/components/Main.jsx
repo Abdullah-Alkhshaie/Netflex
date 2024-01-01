@@ -1,12 +1,12 @@
 import React, { useEffect, useRef } from "react";
 import axios from "axios";
 import requsits from "../Requsit";
-import Slider from "react-slick";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { FaSpinner } from "react-icons/fa6";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 
 function Main() {
   const [movies, setMovies] = React.useState([]);
