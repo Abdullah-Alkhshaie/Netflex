@@ -108,7 +108,7 @@ function Main() {
               </p>
               <p className="w-full md:max-w-[70%] lg:max-w-[50%] xl:max-w-[35%] leading-6">
                 {movie?.overview.length > 150
-                  ? movie?.overview.slice(0, 250) + "..."
+                  ? movie?.overview.slice(0, 280) + "..."
                   : movie?.overview}
               </p>
             </div>
