@@ -18,7 +18,7 @@ function SearchResultItem({ item }) {
         )}
         <div className="p-4">
           <h3 className="text-white text-lg font-bold mb-2">
-            {item.title.slice(0, 20)}
+            {item.title.slice(0, 15)}
           </h3>
           <p className="text-gray-400">{item.release_date}</p>
         </div>

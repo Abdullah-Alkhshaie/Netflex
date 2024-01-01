@@ -34,11 +34,11 @@ function Navbar() {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           onKeyDown={handleSearch}
-          className="px-4 py-2 mr-2 bg-transparent border border-red-700 focus:outline-none text-white"
+          className="px-4 py-2 ml-16 bg-transparent border border-red-700 focus:outline-none text-white"
         />
         <button
           onClick={handleButton}
-          className="bg-transparent text-red-600 px-4 py-2 rounded"
+          className="bg-transparent text-red-600 relative  -left-24 px-4 py-2 rounded"
         >
           Search
         </button>
