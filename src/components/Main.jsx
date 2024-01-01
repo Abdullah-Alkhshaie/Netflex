@@ -1,54 +1,75 @@
-import React from "react";
-import { useState } from "react";
-import requsits from "../Requsit";
+import React, { useEffect, useRef } from "react";
 import axios from "axios";
-import { useEffect } from "react";
+import requsits from "../Requsit";
+import Slider from "react-slick";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { FaSpinner } from "react-icons/fa6";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 function Main() {
-  const [movies, setMovies] = useState([]);
-  const [currentMovieIndex, setCurrentMovieIndex] = useState(0);
+  const [movies, setMovies] = React.useState([]);
+  const [statu, setStatu] = React.useState("idle");
+  const [error, setError] = React.useState(null);
+
+  const sliderRef = useRef(null);
 
   useEffect(() => {
-    axios
-      .get(requsits.requsitPopular)
-      .then((response) => setMovies(response.data.results))
-      .catch((err) => console.log(err));
+    const fetchData = async () => {
+      setStatu("loading");
+      try {
+        const response = await axios.get(requsits.requsitPopular);
+        setMovies(response.data.results);
+        setStatu("success");
+      } catch (err) {
+        setError("Error fetching data");
+        setStatu("failed");
+        console.error(err);
+      }
+    };
+
+    fetchData();
   }, []);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentMovieIndex((prevIndex) => (prevIndex + 1) % movies.length);
-    }, 15000);
-
-    return () => clearInterval(interval);
-  }, [movies]);
-
-  const currentMovie = movies[currentMovieIndex];
+  const showPrevMovie = () => {
+    sliderRef.current.slickPrev();
+  };
 
   const showNextMovie = () => {
-    setCurrentMovieIndex((prevIndex) => (prevIndex + 1) % movies.length);
-  };
-  const showPrevMovie = () => {
-    setCurrentMovieIndex((prevIndex) => (prevIndex - 1) % movies.length);
+    sliderRef.current.slickNext();
   };
 
-  if (!currentMovie) {
-    <div className="absolute translate-x-[-50%] translate-y-[-50%] top-[50%] left-[50%] ">
-      <FaSpinner size={50} className="animate-spin" />
-    </div>;
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 15000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 0,
+    cssEase: "linear",
+    beforeChange: (oldIndex, newIndex) => {
+      // Handle slide change if needed
+    },
+  };
+
+  if (statu === "loading") {
+    return <p>Loading...</p>;
+  }
+
+  if (statu === "failed") {
+    return <p>{error}</p>;
   }
 
   return (
-    <div className="w-full h-[650px] mb-20  text-white">
+    <div className="w-full h-[650px] mb-20 text-white relative">
       <MdChevronLeft
         onClick={showPrevMovie}
         size={50}
-        className="absolute top-[30%]  rounded-full text-white opacity-50 cursor-pointer  left-2 z-10 cursor-pointers "
+        className="absolute top-[30%] rounded-full text-white opacity-50 cursor-pointer left-2 z-10 cursor-pointers "
       />
-      {currentMovie && (
+      <Slider ref={sliderRef} {...settings}>
         <div key={currentMovie.id} className="w-full h-full">
           <div className=" bg-gradient-to-t from-gray-900  absolute w-full h-[650px] "></div>
           <img
@@ -84,11 +105,12 @@ function Main() {
             </p>
           </div>
         </div>
-      )}
+      </Slider>
+
       <MdChevronRight
         onClick={showNextMovie}
         size={50}
-        className="  absolute top-[30%] rounded-full  text-white opacity-50 cursor-pointer  right-2 z-10 cursor-pointers "
+        className="absolute top-[30%] rounded-full text-white opacity-50 cursor-pointer right-2 z-10 cursor-pointers "
       />
     </div>
   );
