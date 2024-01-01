@@ -80,7 +80,7 @@ function Main() {
       <Slider ref={sliderRef} {...settings}>
         {movies.map((movie) => (
           <div key={movie.id} className="relative">
-            <div className="absolute inset-0 bg-gradient-to-t from-gray-900 opacity-70"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-gray-900 opacity-100"></div>
             <img
               className="w-full h-[650px] object-cover"
               src={`https://image.tmdb.org/t/p/original/${movie?.backdrop_path}`}
