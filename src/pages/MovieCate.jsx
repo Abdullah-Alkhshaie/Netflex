@@ -25,8 +25,10 @@ function MovieCate() {
   }, [id]);
 
   useEffect(() => {
-  axios.get(requsits.requsitPopular).then((response) => setMovieSec(response.data.results));
-}, []);
+    axios
+      .get(requsits.requsitPopular)
+      .then((response) => setMovieSec(response.data.results));
+  }, []);
 
   console.log(movieSec);
 
@@ -68,7 +70,7 @@ function MovieCate() {
   // console.log(movie);
 
   return (
-    <div className="bg-gray-800   mt-20 xl:flex gap-20 ">
+    <div className="bg-gray-800 mt-40 md:mt-20 xl:flex gap-20 ">
       <div className=" bg-gray-800 flex flex-col  xl:flex-1 rounded-lg justify-center items-center">
         <div className="bg-gray-700 rounded-lg ml-5 mr-5 mt-10 mb-10 lg:mb-20">
           <video
